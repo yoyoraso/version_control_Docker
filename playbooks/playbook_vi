@@ -1,0 +1,15 @@
+---
+- hosts: Docker
+  tasks:
+   - name: stop previous version docker
+     shell: docker stop yaya
+   - name: remove stopped container
+     shell: docker rm -f yaya	  
+   - name: remove docker images
+     shell: docker image rm -f yoyoraso/version_control:latest
+
+   - name: pull docker image
+     shell: docker pull  yoyoraso/version_control:latest
+
+   - name: create docker image
+     shell: docker run -d --name yaya -p 8090:8080 yoyoraso/version_control:latest
