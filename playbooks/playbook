@@ -1,7 +1,0 @@
----
-- hosts: tomcat
-  tasks:
-  - name: copy war to tomcat server
-    copy:
-      src: /root/playbooks/webapp/target/webapp.war
-      dest: /var/lib/tomcat/webapps
